@@ -1,11 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import random
+from calculate_function import calculate
 
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def home():
     return render_template('home.html')
+
+@app.route('/api/calculate', methods=['POST'])
+def calculate_function():
+    function_formula = request.args.get('function')
+    return calculate(function_formula)
 
 def rownanie_kwadrat():
     a = random.randint(-10,10)
@@ -40,7 +46,7 @@ def rownanie_kwadrat():
     elif delta == 0:
         x0= (-b)/(2*a)
         odp += r"$ x_1 =" + str(x0) + r"$ </p>"
-    else: 
+    else:
         x1 = r"$ \frac{" + str(-b) + r"\sqrt(delta)" + "}{" + str(2*a) + "} $ </p>"
         x2 = r"$ \frac{" + str(-b) + r"-\sqrt(delta)" + "}{" + str(2*a) + "} $ </p>"
         odp += x1 + x2
