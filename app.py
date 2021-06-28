@@ -49,7 +49,11 @@ def rownanie_kwadrat():
 @app.route('/test')
 def test():
     (dzialanie1, odp1) = rownanie_kwadrat
-    return render_template("test.html", dzialanie1=dzialanie1, odp1=odp1)
+    (dzialanie2, odp2) = rownanie_kwadrat
+    (dzialanie3, odp3) = rownanie_kwadrat
+    (dzialanie4, odp4) = rownanie_kwadrat
+    (dzialanie5, odp5) = rownanie_kwadrat
+    return render_template("test.html", dzialanie1=dzialanie1, odp1=odp1, dzialanie2=dzialanie2, odp2=odp2, dzialanie3=dzialanie3, odp3=odp3, dzialanie4=dzialanie4, odp4=odp4, dzialanie5=dzialanie5, odp5=odp5)
 
 if __name__ == '__main__':
     app.run()
