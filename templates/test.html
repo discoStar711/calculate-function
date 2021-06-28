@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+
+        <SCRIPT type="text/javascript">
+            MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</SCRIPT>
+        <SCRIPT type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </SCRIPT>
+    </head>
+    <body>
+        <h1>Przetestuj swoje umiejętności z rozwiązywania zadań związanych z funkcjami kwadratowymi</h1>
+        <h3>Przykłady generowane są losowo, zatem jeśli chcesz rozwiązać nowe zadania, wystarczy, że odświeżysz stronę!</h3>
+        <p>Przykład 1: $${{dzialanie1}} $$</p>
+        {% endautoescape %}
+        <p onclick="znikanie()">Odpowiedź</p>
+        <p id="answers" style="display: none;">{{odp1}}</p>
+        <script>
+            function znikanie(){
+                var x = document.getElementById("answers")
+                if(x.style.display === "none"){
+                    x.style.display = "block";
+                }else{
+                    x.style.display = "none"
+                }
+            }
+        </script>
+    </body>
