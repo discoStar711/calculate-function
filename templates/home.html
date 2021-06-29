@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Wykres funkcji</title>
-    <link rel="stylesheet" href="static/bootstrap.css">
-    <link rel="stylesheet" href="static/bootstrap-reboot.css">
+    <link rel="stylesheet" href="../static/bootstrap.css">
+    <link rel="stylesheet" href="../static/bootstrap-reboot.css">
 </head>
 <body>
 <form class="row g-3">
@@ -13,10 +13,10 @@
       <input type="text" class="form-control" id="inputWzor">
     </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Rysuj wykres</button>
+      <button onclick="calculateFunction(inputWzor.innerHTML);" type="submit" class="btn btn-primary">Rysuj wykres</button>
     </div>
   </form>
-<script src="static/function_graph.js"></script>
-<script src="static/bootstrap.js"></script>
+<script src="../static/function_graph.js"></script>
+<script src="../static/bootstrap.js"></script>
 </body>
 </html>
