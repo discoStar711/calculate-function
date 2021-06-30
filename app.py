@@ -21,12 +21,12 @@ def rownanie_kwadrat():
     a = random.randint(-10,10)
     b = random.randint(-10,10)
     c = random.randint(-10,10)
-    odp = r"<p>"
-    wzor = r"Przykład: $" + str(a) + r"x(^2)"
+    odp = r""
+    wzor = r"Przykład: " + str(a) + r"x^(2)"
     while a==0:
         a = random.randint(0,10)
     if a == 1:
-        wzor = r"Przykład: $ x(^2)"
+        wzor = r"Przykład: x^(2)"
     else:
         r"Przykład: $" + str(a) + r"x(^2)"
     if b<0:
@@ -39,20 +39,20 @@ def rownanie_kwadrat():
     else:
         wzor = wzor
     if c<0:
-        wzor += str(c) + r" = 0 $"
+        wzor += str(c) + r" = 0"
     elif c>0:
-         wzor += r"+" + str(c) + r" = 0 $"
+         wzor += r"+" + str(c) + r" = 0"
     else:
-        wzor += r" = 0 $"
+        wzor += r" = 0"
     delta = b^2 - 4*a*c
     if delta < 0:
         odp += r"Brak miejsc zerowych funkcji"
     elif delta == 0:
         x0= (-b)/(2*a)
-        odp += r"$ x_1 =" + str(x0) + r"$"
+        odp += r"x_1 =" + str(x0)
     else:
-        x1 = r"$ \frac{" + str(-b) + r"\sqrt(" + str(delta) + r")" + "}{" + str(2*a) + "} $"
-        x2 = r"$ \frac{" + str(-b) + r"-\sqrt(" + str(delta) + r")" + "}{" + str(2*a) + "} $"
+        x1 = r"\frac{" + str(-b) + r"\sqrt(" + str(delta) + r")" + "}{" + str(2*a) + "}"
+        x2 = r"\frac{" + str(-b) + r"-\sqrt(" + str(delta) + r")" + "}{" + str(2*a) + "}"
         odp += x1 + x2
     return wzor, odp
 
