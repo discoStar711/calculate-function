@@ -27,8 +27,8 @@
         </ul>
         <h1 id="naglowek">Przetestuj swoje umiejętności z rozwiązywania zadań związanych z funkcjami kwadratowymi</h1>
         <h4 id="opis">Przykłady generowane są losowo, zatem jeśli chcesz rozwiązać nowe zadania, wystarczy, że odświeżysz stronę!</h4>
+        {% autoescape true%}
         <p>Przykład 1: $${{dzialanie1}} $$</p>
-        {% endautoescape %}
         <p onclick="znikanie()">Odpowiedź</p>
         <p id="answers" style="display: none;">{{odp1}}</p>
         <script>
@@ -42,7 +42,6 @@
             }
         </script>
         <p>Przykład 2: $${{dzialanie2}} $$</p>
-        {% endautoescape %}
         <p onclick="znikanie()">Odpowiedź</p>
         <p id="answers" style="display: none;">{{odp2}}</p>
         <script>
@@ -56,7 +55,6 @@
             }
         </script>
         <p>Przykład 3: $${{dzialanie3}} $$</p>
-        {% endautoescape %}
         <p onclick="znikanie()">Odpowiedź</p>
         <p class="answers" style="display: none;">{{odp3}}</p>
         <script>
@@ -70,7 +68,6 @@
             }
         </script>
         <p>Przykład 4: $${{dzialanie4}} $$</p>
-        {% endautoescape %}
         <p onclick="znikanie()">Odpowiedź</p>
         <p class="answers" style="display: none;">{{odp4}}</p>
         <script>
@@ -84,9 +81,9 @@
             }
         </script>
         <p>Przykład 5: $${{dzialanie5}} $$</p>
-        {% endautoescape %}
         <p onclick="znikanie()">Odpowiedź</p>
         <p class="answers" style="display: none;">{{odp5}}</p>
+        {% endautoescape %}
         <script>
             function znikanie(){
                 var x = document.getElementById("answers")
