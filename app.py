@@ -8,6 +8,10 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+@app.route('/o-nas', methods=['GET'])
+def about():
+    return render_template('about.html')
+
 @app.route('/api/calculate', methods=['POST'])
 def calculate_function():
     function_formula = request.args.get('function')
