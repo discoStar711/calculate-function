@@ -10,3 +10,4 @@ request_params = {
 def calculate(input):
     request_params['input'] = input
     response = requests.get(wolfram_api_url, params=request_params)
+    return response.json()
