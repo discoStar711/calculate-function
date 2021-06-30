@@ -1,10 +1,13 @@
 const DEV_API_URL = 'http://127.0.0.1:5000/api/calculate?function=';
 const API_URL = '';
 
-async function calculateFunction(func) {
-    if (func) {
-        const response = await postFunction(func);
+async function calculateFunction(formula) {
+    if (formula) {
+        const response = await postFunction(formula);
+        console.log(response);
+        return response.queryresult;
     }
+    return {};
 }
 
 async function postFunction(func) {
