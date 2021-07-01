@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <link rel="stylesheet" href="../static/bootstrap.css">
+        <link rel="stylesheet" href="../static/bootstrap-reboot.css">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+
+        <SCRIPT type="text/javascript">
+            MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };</SCRIPT>
+        <SCRIPT type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </SCRIPT>
+    </head>
+    <body>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Wykres funkcji</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/o-nas">O nas i o projekcie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/test">Test</a>
+            </li>
+        </ul>
+        <div class="container">
+            <h1 id="naglowek">Przetestuj swoje umiejętności z rozwiązywania zadań związanych z funkcjami kwadratowymi</h1>
+            <h4 id="opis">Przykłady generowane są losowo, zatem jeśli chcesz rozwiązać nowe zadania, wystarczy, że odświeżysz stronę!</h4>
+            {% autoescape true%}
+            <p>Przykład 1: $${{dzialanie1}} $$</p>
+            <p onclick="znikanie('answer1')">Odpowiedź</p>
+            <p id="answer1" style="display: none;">{{odp1}}</p>
+            <p>Przykład 2: $${{dzialanie2}} $$</p>
+            <p onclick="znikanie('answer2')">Odpowiedź</p>
+            <p id="answer2" style="display: none;">{{odp2}}</p>
+            <p>Przykład 3: $${{dzialanie3}} $$</p>
+            <p onclick="znikanie('answer3')">Odpowiedź</p>
+            <p id="answer3" style="display: none;">{{odp3}}</p>
+            <p>Przykład 4: $${{dzialanie4}} $$</p>
+            <p onclick="znikanie('answer4')">Odpowiedź</p>
+            <p id="answer4" style="display: none;">{{odp4}}</p>
+            <p>Przykład 5: $${{dzialanie5}} $$</p>
+            <p onclick="znikanie('answer5')">Odpowiedź</p>
+            <p id="answer5" style="display: none;">{{odp5}}</p>
+            {% endautoescape %}
+        </div>
+        <script>
+            function znikanie(id){
+                var x = document.getElementById(id)
+                if(x.style.display === "none"){
+                    x.style.display = "block";
+                }else{
+                    x.style.display = "none"
+                }
+            }
+        </script>
+    </body>
+</html>

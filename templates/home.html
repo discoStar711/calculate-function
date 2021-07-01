@@ -3,9 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <title>Wykres funkcji</title>
+    <link rel="stylesheet" href="../static/bootstrap.css">
+    <link rel="stylesheet" href="../static/bootstrap-reboot.css">
 </head>
 <body>
-<button onclick="">Pokaz wykres</button>
-<script src="static/function_graph.js"></script>
+
+<ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/">Wykres funkcji</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/o-nas">O nas i o projekcie</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/test">Test</a>
+      </li>
+    </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-6 pt-5">
+            <form id="formularz">
+                <div class="pb-3">
+                    <label for="inputWzor" class="form-label">Wzór funkcji</label>
+                    <input type="text" class="form-control" id="inputWzor">
+                </div>
+                <button type="submit" class="btn btn-primary">Rysuj wykres</button>
+            </form>
+        </div>
+        <div class="w-100 pb-5"></div>
+        <div class="w-100">
+            <p id="requestError"></p>
+        </div>
+        <div class="col-12 pb-3">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Wzór:</h3>
+                    <div id="functionFormula">
+                        <img id="functionFormulaImg" src="">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h3>Wzór jako napis:</h3>
+                    <p id="functionFormulaString"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 pb-3">
+            <h3>Wykres:</h3>
+            <div id="plot">
+                <img id="plotImg" src="">
+            </div>
+        </div>
+        <div class="col-12 pb-3">
+            <h3>Dziedzina:</h3>
+            <div id="set">
+                <img id="setImg" src="">
+            </div>
+        </div>
+        <div class="col-12 pb-3">
+            <h3>Pochodna:</h3>
+            <div id="derivative">
+                <img id="derivativeImg" src="">
+            </div>
+        </div>
+        <div class="col-12 pb-3">
+            <h3>Czas zapytania:</h3>
+            <p id="timing"></p>
+        </div>
+    </div>
+</div>
+<script>
+    const form = document.getElementById('formularz');
+    const calculate = async (ev) => {
+        ev.preventDefault();
+        const {
+            error,
+            pods,
+            inputstring,
+            timing
+        } = await calculateFunction(ev.target.elements.inputWzor.value);
+
+        const functionFormulaText = document.getElementById('functionFormulaString');
+        functionFormulaText.style.display = 'block';
+        functionFormulaText.innerHTML = inputstring;
+
+        const functionFormulaImg = document.getElementById('functionFormulaImg');
+        const functionFormula = pods.find(element => element.id === 'Input');
+        if (functionFormula) {
+            const {img} = functionFormula.subpods[0];
+            functionFormulaImg.style.display = 'inline-block';
+            functionFormulaImg.src = img.src;
+        }
+
+        const plotImg = document.getElementById('plotImg');
+        const plot = pods.find(element => element.id === 'Plot');
+        if (plot) {
+            const {img} = plot.subpods[0];
+            plotImg.style.display = 'inline-block';
+            plotImg.src = img.src;
+        }
+
+        const setImg = document.getElementById('setImg');
+        const set = pods.find(element => element.id === 'PropertiesAsARealFunction');
+        if (set) {
+            const {img} = set.subpods[0];
+            setImg.style.display = 'inline-block';
+            setImg.src = img.src;
+        }
+
+        const derivativeImg = document.getElementById('derivativeImg');
+        const derivative = pods.find(element => element.id === 'Derivative');
+        if (derivative) {
+            const {img} = derivative.subpods[0];
+            derivativeImg.style.display = 'inline-block';
+            derivativeImg.src = img.src;
+        }
+        const timingText = document.getElementById('timing');
+        timingText.style.display = 'block';
+        timingText.innerHTML = timing + ' sekund';
+
+        if (error) {
+            functionFormulaText.innerHTML = '';
+            functionFormulaImg.style.display = 'none';
+            plotImg.style.display = 'none';
+            setImg.style.display = 'none';
+            derivativeImg.style.display = 'none';
+            timingText.innerHTML = '';
+
+            const requestError = document.getElementById('requestError');
+            requestError.innerHTML = 'Wystąpił błąd'
+        }
+    };
+
+    if (form.addEventListener) {
+        form.addEventListener("submit", calculate);
+    } else {
+        form.attachEvent("onsubmit", calculate);
+    }
+</script>
+<script src="../static/function_graph.js"></script>
+<script src="../static/bootstrap.js"></script>
 </body>
 </html>
