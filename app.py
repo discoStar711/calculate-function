@@ -26,9 +26,9 @@ def rownanie_kwadrat():
     while a==0:
         a = random.randint(0,10)
     if a == 1:
-        wzor += r"x^(2)"
+        wzor += r"x^2"
     else:
-        wzor += str(a) + r"x(^2)"
+        wzor += str(a) + r"x^2"
     if b<0:
         wzor += str(b) + r"x"
     elif b>0:
