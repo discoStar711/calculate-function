@@ -51,7 +51,7 @@ def rownanie_kwadrat():
         x0= (-b)/(2*a)
         odp += r"$x_1 =" + str(x0) + r"$."
     else:
-        x1 = r"$\frac{" + str(-b) + r"\sqrt(" + str(delta) + r")" + "}{" + str(2*a) + r"}, "
+        x1 = r"$\frac{" + str(-b) + r" + \sqrt(" + str(delta) + r")" + "}{" + str(2*a) + r"}, "
         x2 = r"\frac{" + str(-b) + r"-\sqrt(" + str(delta) + r")" + "}{" + str(2*a) + r"}.$"
         odp += x1 + x2
     return wzor, odp
