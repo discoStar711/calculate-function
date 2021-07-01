@@ -22,13 +22,13 @@ def rownanie_kwadrat():
     b = random.randint(-10,10)
     c = random.randint(-10,10)
     odp = r""
-    wzor = r"Przykład: " + str(a) + r"x^(2)"
+    wzor = r"Przykład: " + str(a) + r"x^2"
     while a==0:
         a = random.randint(0,10)
     if a == 1:
-        wzor = r"Przykład: x^(2)"
+        wzor = r"Przykład: x^2"
     else:
-        r"Przykład: $" + str(a) + r"x(^2)"
+        r"Przykład: $" + str(a) + r"x^2"
     if b<0:
         wzor += str(b) + r"x"
     elif b>0:
